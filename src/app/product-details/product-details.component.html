@@ -5,7 +5,15 @@
   <img mat-card-md-image [src]="product.image" />
   <mat-card-content>
     <p>{{ product.description }}</p>
+    <mat-divider></mat-divider>
+    <p>{{ product.price }}</p>
   </mat-card-content>
   <mat-divider [inset]="true"></mat-divider>
-  <button mat-raised-button class="add-to-cart-button">Add To Cart</button>
+  <button
+    mat-raised-button
+    class="add-to-cart-button"
+    (click)="addToCart(product)"
+  >
+    Add To Cart
+  </button>
 </mat-card>

@@ -6,3 +6,8 @@ export interface Product {
   description: string;
   image: string;
 }
+
+export interface CartProduct {
+  product: Product;
+  quantity: number;
+}

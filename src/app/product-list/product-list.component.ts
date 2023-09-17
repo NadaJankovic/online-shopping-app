@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 
 import { Product } from '../products';
 import { ProductsService } from '../services/products-service.service';
@@ -9,7 +14,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit, OnDestroy {
   products!: Product[];
   subscriptions!: Subscription;
 

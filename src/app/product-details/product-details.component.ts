@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Product } from '../products';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'product-details',
@@ -13,4 +14,11 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ProductDetailsComponent {
   @Input() product!: Product;
+  @Input() products!: Product[];
+
+  constructor(private cartService: CartService) {}
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+  }
 }
