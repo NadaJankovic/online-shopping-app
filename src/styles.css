@@ -18,21 +18,20 @@ body {
   flex-direction: row;
 }
 
+app-product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+product-details {
+  flex-basis: 50%;
+  margin: 10px;
+}
+
 router-outlet + * {
   padding: 0 16px;
 }
 
-.container app-product-list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-product-details {
-  flex: 0 0 33.333333%;
-  min-width: fit-content;
-  margin: 10px;
-}
 /* Text */
 
 h1 {

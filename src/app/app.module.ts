@@ -8,22 +8,17 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
+// import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCardModule,
+    ProductDetailsComponent,
     RouterModule.forRoot([{ path: '', component: ProductListComponent }]),
   ],
-  declarations: [
-    AppComponent,
-    TopBarComponent,
-    ProductListComponent,
-    ProductDetailsComponent,
-  ],
+  declarations: [AppComponent, TopBarComponent, ProductListComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

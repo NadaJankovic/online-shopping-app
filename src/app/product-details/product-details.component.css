@@ -1,0 +1,16 @@
+.mdc-card {
+  width: 300px;
+  margin: 10px;
+}
+
+.mat-mdc-card-md-image {
+  padding-left: 16px;
+}
+
+button.add-to-cart-button {
+  cursor: pointer;
+  background-color: #1976d2;
+  & span {
+    color: white;
+  }
+}
