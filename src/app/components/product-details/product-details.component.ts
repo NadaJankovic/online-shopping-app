@@ -1,9 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Product } from '../products';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild,
+  signal,
+} from '@angular/core';
+import { Product } from '../../products';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'product-details',
@@ -16,9 +23,16 @@ export class ProductDetailsComponent {
   @Input() product!: Product;
   @Input() products!: Product[];
 
-  constructor(private cartService: CartService) {}
+  isProductAddedToCart!: boolean;
+  buttonLabel = 'Add to Cart';
+
+  constructor(private cartService: CartService) {
+    this.isProductAddedToCart = false;
+  }
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
+    this.isProductAddedToCart = !this.isProductAddedToCart;
+    this.buttonLabel = 'Item Added';
   }
 }

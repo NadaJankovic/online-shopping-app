@@ -13,7 +13,8 @@
     mat-raised-button
     class="add-to-cart-button"
     (click)="addToCart(product)"
+    [disabled]="isProductAddedToCart"
   >
-    Add To Cart
+    {{ buttonLabel }}
   </button>
 </mat-card>
