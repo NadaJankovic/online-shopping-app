@@ -25,11 +25,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.subscriptions = this.productsService.getProducts().subscribe({
-      next: (products) => (this.products = products),
-      error: (error) => console.log(error),
-    });
     this.router.navigate(['/product-list']);
+    this.subscriptions = this.productsService.getProducts().subscribe({
+      next: (productsFromApi) => (this.products = productsFromApi),
+      error: (e) => console.log(e),
+    });
   }
 
   ngOnDestroy(): void {

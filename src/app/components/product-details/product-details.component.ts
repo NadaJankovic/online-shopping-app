@@ -23,16 +23,13 @@ export class ProductDetailsComponent {
   @Input() product!: Product;
   @Input() products!: Product[];
 
-  isProductAddedToCart!: boolean;
   buttonLabel = 'Add to Cart';
 
-  constructor(private cartService: CartService) {
-    this.isProductAddedToCart = false;
-  }
+  constructor(private cartService: CartService) {}
 
   addToCart(product: Product) {
+    this.product.isAddedToCart = true;
     this.cartService.addToCart(product);
-    this.isProductAddedToCart = !this.isProductAddedToCart;
     this.buttonLabel = 'Item Added';
   }
 }

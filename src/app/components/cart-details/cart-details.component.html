@@ -1,6 +1,4 @@
-<p>cart-details works!</p>
-<button
-    mat-raised-button
-    (click)= "returnToProductList()"
-  > Return
-  </button>
+<div *ngFor="let item of cartItems">
+  <span>{{ item.quantity }}</span>
+</div>
+<button mat-raised-button (click)="returnToProductList()">Return</button>
