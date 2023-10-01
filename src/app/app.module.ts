@@ -11,7 +11,8 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { AppRoutingModule } from './app-routing.module';
-// import { MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   imports: [
@@ -20,6 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     ProductDetailsComponent,
     AppRoutingModule,
+    MatCardModule,
+    MatDividerModule,
   ],
   declarations: [
     AppComponent,

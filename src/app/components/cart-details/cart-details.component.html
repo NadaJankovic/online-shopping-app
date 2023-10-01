@@ -1,4 +1,9 @@
-<div *ngFor="let item of cartItems">
-  <span>{{ item.quantity }}</span>
-</div>
+<mat-card *ngFor="let item of cartItems">
+  <mat-card-content>
+    <p>{{ item.product.title }}</p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <p>Qantaty: {{ item.quantity }}</p>
+  <mat-card> </mat-card
+></mat-card>
 <button mat-raised-button (click)="returnToProductList()">Return</button>

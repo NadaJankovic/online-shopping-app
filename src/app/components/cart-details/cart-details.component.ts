@@ -14,7 +14,7 @@ export class CartDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.cartItems = JSON.parse(this.cartService.getCartItems());
-    console.log(this.cartItems);
+    console.log(this.cartItems.length);
   }
 
   returnToProductList() {

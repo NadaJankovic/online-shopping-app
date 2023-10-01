@@ -1,8 +1,9 @@
 import {
-  ChangeDetectionStrategy,
   Component,
+  OnChanges,
   OnDestroy,
   OnInit,
+  SimpleChanges,
 } from '@angular/core';
 
 import { Product } from '../../products';
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit, OnChanges {
   products!: Product[];
   subscriptions!: Subscription;
 
@@ -26,13 +27,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.router.navigate(['/product-list']);
-    this.subscriptions = this.productsService.getProducts().subscribe({
-      next: (productsFromApi) => (this.products = productsFromApi),
-      error: (e) => console.log(e),
-    });
+    this.products = JSON.parse(this.productsService.getProducts());
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+  ngOnChanges(value: SimpleChanges) {
+    console.log(value);
   }
 }

@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   Input,
+  OnInit,
   ViewChild,
   signal,
 } from '@angular/core';
@@ -19,16 +20,24 @@ import { CartService } from '../../services/cart.service';
   standalone: true,
   imports: [MatCardModule, MatDividerModule, MatButtonModule],
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent implements OnInit {
   @Input() product!: Product;
   @Input() products!: Product[];
 
   buttonLabel = 'Add to Cart';
+  isAddToCartButtobDisabled = false;
 
   constructor(private cartService: CartService) {}
 
+  ngOnInit() {
+    if (!!this.product && this.product.isAddedToCart) {
+      this.isAddToCartButtobDisabled = !this.product.isAddedToCart;
+    }
+  }
+
   addToCart(product: Product) {
     this.product.isAddedToCart = true;
+    this.isAddToCartButtobDisabled = this.product.isAddedToCart;
     this.cartService.addToCart(product);
     this.buttonLabel = 'Item Added';
   }

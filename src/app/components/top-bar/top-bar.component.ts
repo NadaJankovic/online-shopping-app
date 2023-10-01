@@ -1,14 +1,16 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  OnChanges,
   OnDestroy,
   OnInit,
+  SimpleChanges,
   inject,
 } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { Subscription } from 'rxjs';
-import { CartProduct } from '../../products';
 import { Router } from '@angular/router';
+import { CartProduct } from 'src/app/products';
 
 @Component({
   selector: 'app-top-bar',
@@ -16,7 +18,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-bar.component.css'],
 })
 export class TopBarComponent implements OnInit, OnDestroy {
-  cartCount: number | undefined;
+  cartCount!: number;
   subscriptions!: Subscription;
   localStogargeCartItems: any;
 
@@ -27,6 +29,10 @@ export class TopBarComponent implements OnInit, OnDestroy {
       (value) => (this.cartCount = value)
     );
   }
+
+  // ngOnChanges(value: SimpleChanges) {
+  //   console.log(value);
+  // }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
